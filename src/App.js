@@ -1,5 +1,4 @@
-import Theme from "./component/themeControl/Theme";
-
+import Theme from "./pages/themeControl/Theme";
 function App() {
   return (
     <div className="App">

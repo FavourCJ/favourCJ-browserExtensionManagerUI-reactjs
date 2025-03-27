@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./theme.css"
-import { BrowserContext } from '../browserContext/BrowserContext';
-import All from '../activeStatus/All';
-import Active from '../activeStatus/Active';
-import InActiveExt from '../activeStatus/InActiveExt';
+import { BrowserContext } from '../../component/browserContext/BrowserContext';
+import All from '../../component/activeStatus/All';
+import Active from '../../component/activeStatus/Active';
+import InActiveExt from '../../component/activeStatus/InActiveExt';
 
 function Theme() {
   const [theme, setTheme] = useState(false)
