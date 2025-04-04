@@ -6,9 +6,9 @@ import Active from '../../component/activeStatus/Active';
 import InActiveExt from '../../component/activeStatus/InActiveExt';
 
 function Theme() {
-  const [theme, setTheme] = useState(false)
+  // false for dark mode, light for light mode
   const getStatus = JSON.parse(localStorage.getItem("activeStatus"))
-  const {transferDataToLocalStorage, getDataActivity, getThemeStatus
+  const {transferDataToLocalStorage, getDataActivity, getThemeStatus,  setTheme, theme
         } = useContext(BrowserContext)
 
     useEffect(()=>{
@@ -20,7 +20,7 @@ function Theme() {
     <>
     {/* display website according to the user's prefernce. Dark mode is the default mode */}
      {
-        theme ? 
+        getThemeStatus ? 
             // if theme is set to true, display light mode
             <div className='theme-light-container'>
             <div className='theme-light'>
@@ -56,7 +56,7 @@ function Theme() {
                <button className='theme-light-btn' 
                // if activestatus is true, leave default color else if it is false, change button color to white
                //you can find the code in BrowserContext folder located at the component folder
-               id= {getStatus === "active" ? '' : "light-active"}
+               id = {getStatus === "active" ? '' : "light-active"}
                 onClick={()=>{
                  getDataActivity()
                  localStorage.setItem("activeStatus", JSON.stringify("active"));
@@ -107,13 +107,14 @@ function Theme() {
             <button 
             className='dark-btn'
             onClick={()=>{
-              setTheme(!theme)
-              localStorage.setItem("theme", JSON.stringify(theme));
+               setTheme(!theme)
+               localStorage.setItem("theme", JSON.stringify(theme));
               }}><img src="/assets/images/icon-sun.svg" alt="" className='theme-img'/></button>  
             </div>
     
               <div className='theme-header-buttons-container'>
-              <h2 className='theme-dark-header'>Extensions List</h2>
+                <h2 className='theme-dark-header'>Extensions List</h2>
+
               <div className='theme-dark-header-buttons'>
                 <button 
                 id= {getStatus === "all" ? '' : "light-active"}
@@ -124,6 +125,7 @@ function Theme() {
                     getDataActivity()
                     localStorage.setItem("activeStatus", JSON.stringify("all"));
                   }}>All</button>
+
                 <button className='theme-dark-btn' 
                 // if activestatus is true, leave default color else if it is false, change button color to white
                 //you can find the code in BrowserContext folder located at the component folder
@@ -167,7 +169,6 @@ function Theme() {
             }
                     
             </div>
- 
             }
     </>
          

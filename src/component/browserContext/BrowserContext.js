@@ -6,13 +6,13 @@ export const BrowserContext = createContext();
 
 function BrowserProvider (props){
     const [isActive, setIsActive] = useState(false)
+    const [theme, setTheme] = useState(false)
     const getStatus = JSON.parse(localStorage.getItem("activeStatus"))
-    const getThemeStatus = JSON.parse(localStorage.getItem("theme"))
     //get extension array data from local storage
     var localExtensionStorage = JSON.parse(localStorage.getItem("extension-array") || "[]");
     const [active, setActive] = useState([])
     const [inActive, setInActive] = useState([])
-
+    const getThemeStatus = JSON.parse(localStorage.getItem("theme"))
 
        //transferring data.js to localstorage for easy state change update and to be able to 
         // retrieve active and inactive extension browsers 
@@ -44,9 +44,7 @@ function BrowserProvider (props){
         const deleteExtension = (val)=>{
           const updatedExtension = localExtensionStorage.filter((details) => details.id !== val.id); 
           localStorage.setItem("extension-array", JSON.stringify(updatedExtension));
-          setTimeout(()=>{          
-            window.location.reload();
-           },1000)
+          window.location.reload();
         }
     
         const handleToggleChange = (e, val) =>{   
@@ -121,6 +119,7 @@ function BrowserProvider (props){
       const allExports = {isActive, active, inActive,
                           transferDataToLocalStorage, getDataActivity,
                           deleteExtension, handleToggleChange, setIsActive, getThemeStatus,
+                          theme, setTheme
                           };
      
     return(
