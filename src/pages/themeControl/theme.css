@@ -17,7 +17,7 @@
     padding-bottom: 30px;
     justify-items: center;
     flex-wrap: wrap;
-    height: 380vh;
+    height: 450vh;
 
 }
 
@@ -170,7 +170,7 @@ input:checked + .dark-slider:before {
     padding-top: 30px;
     background-image: linear-gradient(#EBF2FC, #EEF8F9);
     background-color: hsl(217, 61%, 90%);
-    height: 380vh;
+    height: 450vh;
     padding-bottom: 30px;
     flex-wrap: wrap;
 }
